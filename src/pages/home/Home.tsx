@@ -17,6 +17,7 @@ import "./home.scss";
 const Home = () => {
   const { todos } = useUserApi();
 
+  // eslint-disable-next-line no-console
   console.log(todos);
 
   return (
