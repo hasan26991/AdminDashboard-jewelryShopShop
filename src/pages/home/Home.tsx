@@ -11,9 +11,14 @@ import {
   chartBoxRevenue,
   chartBoxUser,
 } from "../../data";
+import { useUserApi } from "../../hooks/api/useUserApi";
 import "./home.scss";
 
 const Home = () => {
+  const { todos } = useUserApi();
+
+  console.log(todos);
+
   return (
     <div className="home">
       <div className="box box1">

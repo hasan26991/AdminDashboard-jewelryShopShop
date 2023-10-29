@@ -9,13 +9,8 @@ import Login from "./pages/login/Login";
 import "./styles/global.scss";
 import User from "./pages/user/User";
 import Product from "./pages/product/Product";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-
-
-const queryClient = new QueryClient();
+import { Provider } from "react-redux";
+import { store } from "./services/store";
 
 function App() {
   const Layout = () => {
@@ -27,9 +22,9 @@ function App() {
             <Menu />
           </div>
           <div className="contentContainer">
-            <QueryClientProvider client={queryClient}>
+            <Provider store={store}>
               <Outlet />
-            </QueryClientProvider>
+            </Provider>
           </div>
         </div>
         <Footer />
