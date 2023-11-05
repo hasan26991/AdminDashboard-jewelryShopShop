@@ -12,7 +12,7 @@ export const parseResponse = <T>(
     return query;
   }
 
-  const { data } = query as any;
+  const { data } = query;
 
   return { data: data as T };
 };

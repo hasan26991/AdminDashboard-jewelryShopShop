@@ -1,9 +1,13 @@
-import { useGetTodosQuery } from "../../services/user.service";
+import { useLoginMutation } from "../../services/user.service";
 
 export const useUserApi = () => {
-  const { data } = useGetTodosQuery();
+  const [Login, { data: currentUser, isSuccess, isLoading }] =
+    useLoginMutation();
 
   return {
-    todos: data,
+    Login,
+    currentUser,
+    isSuccess,
+    isLoading,
   };
 };

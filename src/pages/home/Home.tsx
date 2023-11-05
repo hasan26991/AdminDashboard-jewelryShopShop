@@ -11,14 +11,14 @@ import {
   chartBoxRevenue,
   chartBoxUser,
 } from "../../data";
-import { useUserApi } from "../../hooks/api/useUserApi";
+// import { useTestApi } from "../../hooks/api/useTestApi";
 import "./home.scss";
 
 const Home = () => {
-  const { todos } = useUserApi();
+  // const { todos } = useTestApi();
 
   // eslint-disable-next-line no-console
-  console.log(todos);
+  // console.log(todos);
 
   return (
     <div className="home">

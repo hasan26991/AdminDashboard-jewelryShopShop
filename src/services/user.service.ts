@@ -1,22 +1,27 @@
+import { Auth } from "aws-amplify";
 import { baseApi } from "./base.service";
-import { parseResponse } from "../utils/apiHelpers";
-import ApiUrls from "../utils/apiUrls";
+import { ILoginProps } from "../models/user.model";
 
+// Define a service using a base URL and expected endpoints
 export const userApi = baseApi.injectEndpoints({
-  overrideExisting: false,
   endpoints: (builder) => ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    getTodos: builder.query<any[], void>({
-      queryFn: async (_args, _api, _extraOptions, baseQuery) => {
-        const query = await baseQuery({
-          url: ApiUrls.Todo.todo,
-        });
+    login: builder.mutation<any, ILoginProps>({
+      queryFn: async (args) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const response = parseResponse<any[]>(query);
-        return response;
+        try {
+          const user = await Auth.signIn(args.username, args.password);
+
+          return { data: user.signInUserSession.accessToken.jwtToken };
+        } catch (error) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          return error as any;
+        }
       },
     }),
   }),
 });
 
-export const { useGetTodosQuery } = userApi;
+// Export hooks for usage in functional components, which are
+// auto-generated based on the defined endpoints
+export const { useLoginMutation } = userApi;
