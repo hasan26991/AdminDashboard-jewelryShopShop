@@ -1,11 +1,11 @@
 import { Navigate, useLocation, Outlet } from "react-router-dom";
-import { useUserState } from "../reducers/user.reducer";
 
 const ProtectedRoute = () => {
-  const userState = useUserState();
-  const { currentUser } = userState;
-
   const location = useLocation();
+
+  const currentUser = localStorage.getItem(
+    "CognitoIdentityServiceProvider.f7b7901sek1k9fo7qa2ulf6rg.test.accessToken"
+  );
 
   return currentUser ? (
     <Outlet />

@@ -9,13 +9,14 @@ import {
   Tooltip,
 } from "@mui/material";
 import { PersonAdd, Settings, Logout } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
-import { cleanSelectedUser } from "../../actions/user.action";
+import { Auth } from "aws-amplify";
+import { useNavigate } from "react-router-dom";
 
 export default function AccountMenu() {
-  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -24,8 +25,9 @@ export default function AccountMenu() {
   };
 
   const handleLogout = () => {
-    dispatch(cleanSelectedUser());
+    Auth.signOut();
     setAnchorEl(null);
+    navigate("/login");
   };
 
   return (

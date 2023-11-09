@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUserApi } from "../../hooks/api/useUserApi";
 import {
   Button,
   CssBaseline,
@@ -9,28 +8,29 @@ import {
   Typography,
   Container,
 } from "@mui/material";
+import { Auth } from "aws-amplify";
 
 // test, Test!2345678
 
 export default function Login() {
-  const { Login, isSuccess, isLoading } = useUserApi();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = (event: React.ChangeEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-
-    Login({
-      username: data.get("username") as string,
-      password: data.get("password") as string,
-    });
-  };
-
-  useEffect(() => {
-    if (isSuccess) {
+    try {
+      setIsLoading(true);
+      await Auth.signIn(
+        data.get("username") as string,
+        data.get("password") as string
+      );
+      setIsLoading(false);
       navigate("/");
+    } catch (error) {
+      setIsLoading(false);
     }
-  }, [isSuccess, navigate]);
+  };
 
   return (
     <Container component="main" maxWidth="sm">
