@@ -13,6 +13,9 @@ const tagTypes = Object.values(RequestTags);
 const baseQuery = fetchBaseQuery({
   baseUrl: `${"http://localhost:3005"}/`,
   credentials: "include",
+  // headers: {
+  //   Authorization: currentUser.idToken,
+  // },
 });
 
 export const baseApi = createApi({
