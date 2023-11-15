@@ -1,4 +1,4 @@
-import { useGetTodosQuery } from "../../services/test.service";
+import { useGetTodosQuery } from "services/test.service";
 
 export const useTestApi = () => {
   const { data } = useGetTodosQuery();

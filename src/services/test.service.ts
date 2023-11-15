@@ -1,6 +1,6 @@
 import { baseApi } from "./base.service";
-import { parseResponse } from "../utils/apiHelpers";
-import ApiUrls from "../utils/apiUrls";
+import { parseResponse } from "utils/apiHelpers";
+import ApiUrls from "utils/apiUrls";
 
 export const testApi = baseApi.injectEndpoints({
   overrideExisting: false,

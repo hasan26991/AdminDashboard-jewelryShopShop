@@ -1,4 +1,4 @@
-import AccountMenu from "../accountMenu/AccountMenu";
+import AccountMenu from "components/accountMenu/AccountMenu";
 import "./navbar.scss";
 
 const Navbar = () => {

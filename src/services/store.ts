@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { testApi } from "./test.service";
-import reducer from "../reducers/root.reducer";
+import reducer from "reducers/root.reducer";
 import {
   persistStore,
   FLUSH,
