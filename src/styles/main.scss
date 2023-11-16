@@ -37,3 +37,17 @@ a {
   width: 100%;
   // width: calc(100vw - 250px);
 }
+
+
+// These classes to beatify the scrollbar
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 200px;
+  background-color: #aaaaaa;
+}
+

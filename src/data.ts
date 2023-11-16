@@ -1,3 +1,5 @@
+import { Group, Home, ShoppingCart, ListAlt } from "@mui/icons-material";
+
 export const menu = [
   {
     id: 1,
@@ -7,13 +9,13 @@ export const menu = [
         id: 1,
         title: "Homepage",
         url: "/",
-        icon: "home.svg",
+        icon: Home,
       },
       {
         id: 2,
         title: "Profile",
         url: "/users/1",
-        icon: "user.svg",
+        icon: Group,
       },
     ],
   },
@@ -25,25 +27,25 @@ export const menu = [
         id: 1,
         title: "Users",
         url: "/users",
-        icon: "user.svg",
+        icon: Group,
       },
       {
         id: 2,
         title: "Products",
         url: "/products",
-        icon: "product.svg",
+        icon: ShoppingCart,
       },
       {
         id: 3,
         title: "Orders",
         url: "/orders",
-        icon: "order.svg",
+        icon: ListAlt,
       },
       {
         id: 4,
         title: "Posts",
         url: "/posts",
-        icon: "post2.svg",
+        icon: ListAlt,
       },
     ],
   },
@@ -55,25 +57,25 @@ export const menu = [
         id: 1,
         title: "Elements",
         url: "/",
-        icon: "element.svg",
+        icon: ListAlt,
       },
       {
         id: 2,
         title: "Notes",
         url: "/",
-        icon: "note.svg",
+        icon: ListAlt,
       },
       {
         id: 3,
         title: "Forms",
         url: "/",
-        icon: "form.svg",
+        icon: ListAlt,
       },
       {
         id: 4,
         title: "Calendar",
         url: "/",
-        icon: "calendar.svg",
+        icon: ListAlt,
       },
     ],
   },
@@ -85,13 +87,13 @@ export const menu = [
         id: 1,
         title: "Settings",
         url: "/",
-        icon: "setting.svg",
+        icon: ListAlt,
       },
       {
         id: 2,
         title: "Backups",
         url: "/",
-        icon: "backup.svg",
+        icon: ListAlt,
       },
     ],
   },
@@ -103,13 +105,13 @@ export const menu = [
         id: 1,
         title: "Charts",
         url: "/",
-        icon: "chart.svg",
+        icon: ListAlt,
       },
       {
         id: 2,
         title: "Logs",
         url: "/",
-        icon: "log.svg",
+        icon: ListAlt,
       },
     ],
   },
@@ -554,8 +556,6 @@ export const products = [
     inStock: true,
   },
 ];
-
-
 
 export const singleUser = {
   id: 1,
