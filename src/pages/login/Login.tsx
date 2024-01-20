@@ -21,10 +21,20 @@ export default function Login() {
     const data = new FormData(event.currentTarget);
     try {
       setIsLoading(true);
-      await Auth.signIn(
+      const userResponse = await Auth.signIn(
         data.get("username") as string,
         data.get("password") as string
       );
+      if (userResponse.challengeName == "NEW_PASSWORD_REQUIRED") {
+        // console.log("NEW_PASSWORD_REQUIRED", userResponse.challengeName);
+        const userWithNewPassword = await Auth.completeNewPassword(
+          userResponse,
+          "oiP7*V5O1"
+        );
+        // console.log("userWithNewPassword", userWithNewPassword);
+      }
+      console.log("userResponse", userResponse);
+
       setIsLoading(false);
       navigate("/");
     } catch (error) {
